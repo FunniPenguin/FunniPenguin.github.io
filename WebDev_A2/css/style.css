@@ -1,0 +1,238 @@
+body {
+    background-color: gray;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+header {
+    text-align: center;
+    border-bottom: 1px solid white;
+    background-color: blueviolet;
+}
+
+header h1 {
+    border: 1px solid white;
+    background: white;
+    justify-self: center;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+    padding-bottom: 0.5%;
+    padding-top: 0.5%;
+    display: inline-block;
+}
+
+
+/* Margin auto will center the page horizontally */
+.page {
+    width: 90vw;
+    height: auto;
+    border: 1px solid black;
+    background: white;
+    justify-self: center;
+    opacity: 80%;
+    padding-bottom: 2vh;
+}
+
+.page h1 {
+    text-decoration: underline;
+}
+
+.page .highlight {
+    background: yellow;
+}
+
+/* mini-tab css */
+.mini-tab {
+    border: 1px solid black;
+    border-radius: 25px;
+    box-shadow: gray;
+    padding: 2%;
+    width: 80%;
+    justify-self: center;
+    margin-top: 2.5%;
+}
+
+.mini-tab h2 {
+    background-color: yellow;
+    display: inline-block;
+    border: 2px solid black;
+    padding: 0vh 1vw
+}
+
+/* Grid css */
+.grid-container {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+.grid-container h1 {
+    grid-column: span 2;
+}
+
+.grid-container article {
+    padding-left: 1%;
+    grid-column: 1;
+}
+.grid-container article p {
+    display: block;
+    margin: auto;
+    width: 100%;
+}
+
+.grid-container aside {
+    margin-top: 20px;
+    display: block;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    grid-column: 2;
+}
+.grid-container aside p {
+    text-indent: 0cm;
+}
+
+/* Flex box css */
+.Flex-box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+img {
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+    max-width: 100%;
+}
+
+.column-display {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: space-between;
+    justify-content: center;
+    padding-left: 2%;
+}
+
+aside p {
+    text-decoration: underline;
+}
+/* Block css */
+.block {
+    display: block;
+    border: 1px solid black;
+    background-color: lightcyan;
+    border-radius: 25px;
+    padding: 1.5%;
+    margin: 5%;
+}
+
+/* Nav CSS */
+nav button {
+    border-radius: 25px;
+}
+
+/* Footer CSS */
+footer {
+    background: blueviolet;
+    color: white;
+    display: block;
+    width: 100%;
+    border: 1px solid white;
+    min-height: 20vh;
+    max-height: auto;
+    justify-self: center;
+}
+
+footer a strong {
+    position: fixed;
+    border: 1px solid gray;
+    bottom: 2%;
+    right: 1%;
+    padding: 4px;
+    background-color: white;
+}
+
+/* Change colour of button when mouse cursor hovers over it */
+footer a strong:hover {
+    background-color: yellow;
+    text-decoration: underline;
+}
+
+/*CSS for responsive menu*/
+/*make a menu items vertical*/
+nav ul li {
+    display: inline-block;
+}
+
+@media screen and (max-width: 800px) {
+    body {
+        font-size: 16px;
+    }
+
+    nav ul li {
+        display: block;
+    }
+    .grid-container article p {
+        grid-column: span 2;
+        /* text-align: center; */
+    }
+
+    .grid-container aside {
+        grid-column: span 2;
+    }
+
+    img {
+        max-width: 70%;
+    }
+    .Flex-box {
+    flex-direction: column;
+    text-justify: center;
+  }
+  .grid-container article {
+    justify-content: center;
+    width: 85cqw;
+  }
+}
+
+/* unhide menu icon */
+#hamIcon {
+    display: block;
+}
+
+/*hide the menu item list*/
+nav ul {
+    display: none;
+}
+
+/*to unhide menu items*/
+.show {
+    display: block;
+}
+
+/* Button css */
+button {
+    background-color: white;
+    color: black;
+    transition: 0.5s;
+    width: 10vw;
+    padding: 0.5vh 0.5vw;
+}
+
+button:hover {
+    background-color: gray;
+}
+
+li button {
+    height: 8vh;
+}
+
+/* learnbtn css */
+.learnbtn {
+    border-radius: 25px;
+    background: green;
+    color: white;
+}
+
+.learnbtn:hover {
+    background-color: darkgreen;
+}
