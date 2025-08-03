@@ -29,10 +29,19 @@ const nextbtn = document.querySelector("#next");
 var allpages = document.querySelectorAll(".page");
 var allquestions = document.querySelectorAll(".question");
 
+const playbtn = document.getElementById("play");
+const startState = document.querySelector(".start-state");
+const playState = document.querySelector(".play-state");
+const loseState = document.querySelector(".lose-state");
+const timeui = document.querySelector(".time-ui")
+
 //ints and bools
-var muteAudio = false;
 var currqn = 1;
 var score = 0;
+var running = false;
+var stopwatch = 0;
+var lives = 0;
+var updateID;
 
 const menuItemsList = document.querySelector("ul");
 const hamIcon = document.querySelector("#hamIcon");
@@ -45,7 +54,8 @@ function toggleMenus() { /*open and close menu*/
     if (menuItemsList.classList.contains("show")) {
         hamIcon.innerHTML = "Close Menu"; //change button text to chose menu
 
-    } else { //if menu NOT showing
+    } 
+    else { //if menu NOT showing
         hamIcon.innerHTML = "Open Menu"; //change button text open menu
     }
 }
@@ -63,9 +73,6 @@ function show(pgno) { //function to show selected page no
     hideall();
     onepage.style.display = "block"; //show the page
 }
-function toggleAudio() {
-    muteAudio = -muteAudio;
-}
 
 function hideqns() {
     for (let qns of allquestions) { //go through all question tabs
@@ -75,7 +82,7 @@ function hideqns() {
 function initForm() {
     prevbtn.style.display = "block";
     nextbtn.style.display = "block";
-    nextbtn.innerHTML = "Next"
+    nextbtn.innerHTML = "Next";
     respg.style.display = "none";
     hideqns();
     let question1 = document.querySelector("#question1");
@@ -88,7 +95,7 @@ function initForm() {
 function submitForm() {
     var answer;
     score = 0;
-    for (i = 1; i <= 5; i++) {
+    for (let i = 1; i <= 5; i++) {
 
         if (parseInt(i) == 2) {
             answer = qns2.value;
@@ -101,7 +108,7 @@ function submitForm() {
         }
         else {
             try { answer = parseInt(document.querySelector("input[name='q" + i + "']:checked").value); }
-            catch {
+            catch (err) {
                 alert("Please answer all the questions before submitting.");
                 return;
             }
@@ -128,14 +135,59 @@ function submitForm() {
         restext.innerHTML = "Congratulations, you are a communist!";
     }
     else {
+        // Small note: it is possible to get zero for the quiz
         restext.innerHTML = "Congratulations, you are a neither!";
     }
 }
-function run() {
-    //insert game loop into here
+
+// Game js
+
+function initGame() {
+    // if start state is not active state
+    startState.style.display = "block";
+    playState.style.display = "none";
+    loseState.style.display = "none";
+}
+function Update() {
+    //update stopwatch
+    stopwatch -= parseFloat(0.333);
+    console.log(stopwatch);
+    //check if timer finish
+    // Not running is to check if user switch to different page, stop the update
+    if ((parseFloat(stopwatch) <= 0) || !(running)) {
+        //if yes end game
+        playState.style.display = "none";
+        loseState.style.display = "block";
+        clearInterval(updateID);
+        return;
+    }
+    
+    //check for active objs
+    //if active objs are present
+    //check keyboard input
+    //update game object positions
+
+    // ball.style.right = ballX + "%"; //set left property to man x variable
+    // ball.style.bottom = ballY + "%"; //set top property to man y variable
+    //check collision
+    //check if obj reach destination
+    //if yes then remove obj, increment score
+    //set person spawn to a random time
+    //else if no active objs
+    //if random time has passed
+    //spawn a obj
+    //render game scene
+    //render ui
+    timeui.innerHTML = `Time left: ${stopwatch}`;
+}
+function Run() {
+    running = true;
+    stopwatch = parseFloat(10);
+    lives = 3;
+    updateID = setInterval(Update, 333); //to run the game at 30 fps
 }
 
-//Add event listener
+//Add event listeners
 
 /*Listen for clicks on the buttons, assign anonymous
 eventhandler functions to call show function*/
@@ -143,43 +195,53 @@ page1btn.addEventListener("click", function () {
     clickAudio.play();
     show(1);
     toggleMenus();
+    // Stop game from running in case transitioning out of running game, save cpu ram
+    running = false;
 });
 page2btn.addEventListener("click", function () {
     clickAudio.play();
     show(2);
     toggleMenus();
+    running = false;
 });
 page3btn.addEventListener("click", function () {
     clickAudio.play();
     show(3);
     toggleMenus();
+    running = false;
 });
 page4btn.addEventListener("click", function () {
     clickAudio.play();
     show(4);
     toggleMenus();
+    running = false;
 });
 page5btn.addEventListener("click", function () {
     clickAudio.play();
     show(5);
     toggleMenus();
+    running = false;
 });
 page6btn.addEventListener("click", function () {
     clickAudio.play();
     show(6);
     toggleMenus();
     initForm();
+    running = false;
 });
 page7btn.addEventListener("click", function () {
     clickAudio.play();
     show(7);
     toggleMenus();
+    initGame();
+    running = false;
 });
 
 // Event listeners for learn buttons. Must use different listeners because this one does not toggle menu
 learn1.addEventListener("click", function () {
     clickAudio.play();
     show(2);
+    // No need to set running to false as these buttons are only in home page
 });
 learn2.addEventListener("click", function () {
     clickAudio.play();
@@ -201,17 +263,18 @@ learn5.addEventListener("click", function () {
 learn6.addEventListener("click", function () {
     clickAudio.play();
     show(7);
+    initGame();
 });
 
 //Qns java
 qns2.oninput = function () {
     //this is the this pointer of qns2 range html, value refers to the number the slider is on
     qns2display.innerHTML = `Current number: ${this.value}`;
-}
+};
 qns3.oninput = function () {
     //this is the this pointer of qns2 range html, value refers to the number the slider is on
     qns3display.innerHTML = `Current number: ${this.value}`;
-}
+};
 
 // Prev and next button functions
 prevbtn.addEventListener("click", function () {
@@ -225,7 +288,7 @@ prevbtn.addEventListener("click", function () {
         let question = document.querySelector("#question" + currqn);
         question.style.display = "block";
     }
-})
+});
 nextbtn.addEventListener("click", function () {
     clickAudio.play();
     if (currqn < 5) { //Number in if statement is max number of questions
@@ -240,7 +303,23 @@ nextbtn.addEventListener("click", function () {
     else if (currqn == 5) {
         submitForm();
     }
-})
+});
+
+playbtn.addEventListener("click", function() {
+    // show play state
+    playState.style.display = "block";
+    // disable start state
+    startState.style.display = "none";
+    Run();
+});
+
+document.addEventListener('keydown', function (kbEvt) {
+//kbEvt: an event object passed to callback function
+if ((kbEvt.code === "Space") && (running)){
+    clickAudio.play();
+}
+//Better option: use switch case instead
+});
 
 //Run the init functions here to create the start page
 hideall();

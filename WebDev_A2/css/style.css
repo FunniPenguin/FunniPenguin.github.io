@@ -1,5 +1,5 @@
 body {
-    background-color: gray;
+    background-color: darkgray;
     color: black;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
@@ -12,7 +12,6 @@ header {
 }
 
 header h1 {
-    border: 1px solid white;
     background: white;
     justify-self: center;
     padding-left: 2.5%;
@@ -34,7 +33,7 @@ header h1 {
     padding-bottom: 2vh;
 }
 
-.page h1 {
+.page h2 {
     text-decoration: underline;
 }
 
@@ -46,14 +45,13 @@ header h1 {
 .mini-tab {
     border: 1px solid black;
     border-radius: 25px;
-    box-shadow: gray;
     padding: 2%;
     width: 80%;
     justify-self: center;
     margin-top: 2.5%;
 }
 
-.mini-tab h2 {
+.mini-tab h3 {
     background-color: yellow;
     display: inline-block;
     border: 2px solid black;
@@ -66,7 +64,7 @@ header h1 {
     grid-template-columns: 3fr 1fr;
 }
 
-.grid-container h1 {
+.grid-container h2 {
     grid-column: span 2;
 }
 
@@ -134,6 +132,47 @@ select {
     height: 5%;
 }
 
+/* Game css */
+#game {
+    display: block;
+    justify-self: center;
+    /* position: inherit; */
+    background-color: black;
+    width: 75vw;
+    height: 75vh;
+    color: white;
+}
+
+.start-state {
+    font-size: 20px;
+    /* justify-self: center; */
+}
+.start-state h3 {
+    display: inline-block;
+    background-color: darkblue;
+    margin-top: 10vh;
+    margin-left: 28vw;
+    padding: 2%;
+    border: 1px solid white;
+}
+#play {
+    display: block;
+    width: 10vw;
+    height: 10vh;
+    border-radius: 25px;
+    margin-left: 30vw;
+    margin-top: 25vh;
+}
+.play-state {
+    width: inherit;
+    height: inherit;
+}
+.german {
+    /* position: relative; */
+    margin-left: 0%;
+    margin-top: 23%;
+}
+
 /* Nav CSS */
 nav button {
     border-radius: 25px;
@@ -147,7 +186,7 @@ footer {
     width: 100%;
     border: 1px solid white;
     min-height: 20vh;
-    max-height: auto;
+    height: auto;
     justify-self: center;
 }
 
@@ -163,6 +202,23 @@ footer a strong {
 /* Change colour of button when mouse cursor hovers over it */
 footer a strong:hover {
     background-color: yellow;
+    text-decoration: underline;
+}
+
+.QR {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-self: center;
+}
+.QR img {
+    /* Using same dimensions so that the QR does not apppear squashed */
+    max-height: 20vh;
+    max-width: 20vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+.QR p {
     text-decoration: underline;
 }
 
@@ -251,12 +307,11 @@ nav button {
 
     footer .Flex-box {
         flex-direction: column;
-        text-justify: center;
     }
 
     .grid-container article {
         justify-content: center;
-        width: 85cqw;
+        width: 85vw;
     }
 
     .learnbtn {
@@ -264,6 +319,19 @@ nav button {
     }
     .score-display{
         font-size: 20px;
+    }
+    .QR {
+        display: none;
+    }
+    .start-state {
+        font-size: 16px;
+    }
+
+    .start-state button {
+    height: 5vh;
+    border-radius: 12px;
+    margin-top: 20%;
+    margin-left: 30%;
     }
 }
 
