@@ -65,6 +65,7 @@ header h1 {
     display: grid;
     grid-template-columns: 3fr 1fr;
 }
+
 .grid-container h1 {
     grid-column: span 2;
 }
@@ -73,6 +74,7 @@ header h1 {
     padding-left: 1%;
     grid-column: 1;
 }
+
 .grid-container article p {
     display: block;
     margin: auto;
@@ -86,8 +88,9 @@ header h1 {
     margin-right: 0.5%;
     grid-column: 2;
 }
+
 .grid-container aside p {
-    text-indent: 0cm;
+    text-indent: 0.5%;
 }
 
 /* Flex box css */
@@ -99,8 +102,6 @@ header h1 {
 }
 
 img {
-    padding-left: 0.5vw;
-    padding-right: 0.5vw;
     max-width: 100%;
 }
 
@@ -116,6 +117,7 @@ img {
 aside p {
     text-decoration: underline;
 }
+
 /* Block css */
 .block {
     display: block;
@@ -124,6 +126,12 @@ aside p {
     border-radius: 25px;
     padding: 1.5%;
     margin: 5%;
+}
+
+/* Question css */
+select {
+    width: 10%;
+    height: 5%;
 }
 
 /* Nav CSS */
@@ -164,6 +172,54 @@ nav ul li {
     display: inline-block;
 }
 
+/* Button css */
+button {
+    background-color: white;
+    color: black;
+    transition: 0.5s;
+    min-width: 10vw;
+    padding: 0.5vh 0.5vw;
+}
+
+button:hover {
+    background-color: lightblue;
+}
+
+nav button {
+    padding: 1vh 1vw;
+}
+
+/* learnbtn css */
+.learnbtn {
+    border-radius: 25px;
+    background: green;
+    color: white;
+}
+
+.learnbtn:hover {
+    background-color: darkgreen;
+}
+
+/* Score css */
+.result {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    justify-self: center;
+}
+.score-display {
+    font-size: 24px;
+    background: white;
+    font-style: italic;
+    text-decoration: solid;
+    margin-left: auto;
+    margin-right: auto;
+    justify-self: center;
+    padding: 5%;
+}
+
+/* Responsive css */
 @media screen and (max-width: 800px) {
     body {
         font-size: 16px;
@@ -172,6 +228,14 @@ nav ul li {
     nav ul li {
         display: block;
     }
+
+    nav button {
+        min-width: 30vw;
+        margin: 2vh 0;
+        padding: 3vh 0;
+        border-radius: 12px;
+    }
+
     .grid-container article p {
         grid-column: span 2;
         /* text-align: center; */
@@ -184,14 +248,23 @@ nav ul li {
     img {
         max-width: 70%;
     }
-    .Flex-box {
-    flex-direction: column;
-    text-justify: center;
-  }
-  .grid-container article {
-    justify-content: center;
-    width: 85cqw;
-  }
+
+    footer .Flex-box {
+        flex-direction: column;
+        text-justify: center;
+    }
+
+    .grid-container article {
+        justify-content: center;
+        width: 85cqw;
+    }
+
+    .learnbtn {
+        border-radius: 12px;
+    }
+    .score-display{
+        font-size: 20px;
+    }
 }
 
 /* unhide menu icon */
@@ -207,32 +280,4 @@ nav ul {
 /*to unhide menu items*/
 .show {
     display: block;
-}
-
-/* Button css */
-button {
-    background-color: white;
-    color: black;
-    transition: 0.5s;
-    width: 10vw;
-    padding: 0.5vh 0.5vw;
-}
-
-button:hover {
-    background-color: gray;
-}
-
-li button {
-    height: 8vh;
-}
-
-/* learnbtn css */
-.learnbtn {
-    border-radius: 25px;
-    background: green;
-    color: white;
-}
-
-.learnbtn:hover {
-    background-color: darkgreen;
 }

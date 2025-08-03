@@ -32,23 +32,28 @@
     <nav> <!--menu system-->
         <button id="hamIcon">Open Menu</button>
         <ul>
-            <li><button id="page1btn">Home Page</button></li>
-            <li><button id="page2btn">How did the Cold War start?</button></li>
-            <li><button id="page3btn">Key events in the Cold War</button></li>
-            <li><button id="page4btn">How did the Cold War end?</button></li>
-            <li><button id="page5btn">Effects of the Cold War</button></li>
-            <li><button id="page6btn">Ideology mini survey</button></li>
-            <li><button id="page7btn">Cold War mini game</button></li>
+            <li><button id="page1btn">Home</button></li>
+            <li><button id="page2btn">Start of war</button></li>
+            <li><button id="page3btn">Key Events</button></li>
+            <li><button id="page4btn">End of war</button></li>
+            <li><button id="page5btn">Effects of the war</button></li>
+            <li><button id="page6btn">Ideology survey</button></li>
+            <li><button id="page7btn">Mini game</button></li>
         </ul>
     </nav>
+    <!-- page html -->
     <main id="pagecontainer">
+        <!-- page 1 html -->
         <section class="page" id="page1">
+            <!-- mini-tab class to give a css layout to the items -->
             <div class="mini-tab">
                 <h2>How did the Cold War start?</h2>
                 <p>How did Cold War between the USA and the Soviet Union, two allies in WW2, start? Click to
                     find out more.</p>
+                <!-- use of learnbtn is explained in java, see java for more details -->
                 <button class="learnbtn" id="learn1">Learn more</button>
             </div>
+            <!-- Each mini tab has a preview of what is in the page -->
             <div class="mini-tab">
                 <h2>Key events in the Cold War</h2>
                 <p>The Cold War took was fought over a span of more than 40 years, what were the key events that took
@@ -79,7 +84,9 @@
                 <button class="learnbtn" id="learn6">Play game</button>
             </div>
         </section>
+        <!-- Page 2 css -->
         <section class="page" id="page2">
+            <!-- Structuring the page using grid so that the images can drop below paras on mobile -->
             <div class="grid-container">
                 <article>
                     <h1>How did the Cold War start?</h1>
@@ -116,6 +123,7 @@
                 </aside>
             </div>
         </section>
+        <!-- Page 3 css -->
         <section class="page" id="page3">
             <div class="grid-container">
                 <article>
@@ -155,50 +163,75 @@
         <section class="page" id="page5">
             page 5 content
         </section>
+        <!-- page 6 css -->
         <section class="page" id="page6">
+            <!-- intro para -->
             <h1>Ideology mini survey</h1>
             <p>This survey will give you a rough gauge how communist or capitalist you are. Simply answer all the
-                questions and press submit to get your results</p>
+                questions and press submit to get your results.</p>
+            <!-- Block to display current qns/result -->
             <div class="block">
                 <div class="question" id="question1">
                     <h1>Question 1</h1>
                     <p>Do you believe that everyone should be paid equally regardless of how much work they do?</p>
+                    <!-- using radio button as user can pick either not both -->
                     <div class="column-display">
-                        <label><input type="radio" id="q1agree" name="q1">Agree</label>
-                        <label><input type="radio" id="q1disagree" name="q1">Disagree</label>
+                        <label><input type="radio" id="q1agree" name="q1" value="-1">Agree</label>
+                        <label><input type="radio" id="q1disagree" name="q1" value="1">Disagree</label>
                     </div>
                 </div>
                 <div class="question" id="question2">
                     <h1>Question 2</h1>
-                    <p>On a scale of 1 to 5, 1 being strongly disagree, 5 being strongly agree, how much do you agree with the statement that <strong>rich people are selfish</strong>?</p>
-                        <label><input type="range" id="q2" min="1" max="5" step="1"></label>
-                        <p id="q2display">Current number: 3</p>
+                    <p>On a scale of 1 to 5, 1 being strongly disagree, 5 being strongly agree, how much do you agree
+                        with the statement that <strong>rich people are selfish</strong>?</p>
+                        <!-- using range because using values from 1 - 5 so best displayed as a slider that user can drag -->
+                    <label><input type="range" id="q2" min="1" max="5" step="1" value="3" name="q2"></label>
+                    <!-- Default value, when the user interacts with the slider will update the html -->
+                    <p id="q2display">Current number: 3</p>
                 </div>
                 <div class="question" id="question3">
                     <h1>Question 3</h1>
-                    <p>On a scale of 1 to 5, 1 being strongly disagree, 5 being strongly agree, how much do you agree with the statement that <strong>free speech is important in society</strong>?</p>
-                    <label><input type="range" id="q3" min="1" max="5" step="1"></label>
+                    <p>On a scale of 1 to 5, 1 being strongly disagree, 5 being strongly agree, how much do you agree
+                        with the statement that <strong>free speech is important in society</strong>?</p>
+                        <!-- range step is intervals, value is default value -->
+                    <label><input type="range" id="q3" min="1" max="5" step="1" value="3" name="q3"></label>
                     <p id="q3display">Current number: 3</p>
                 </div>
                 <div class="question" id="question4">
                     <h1>Question 4</h1>
-                    <p>On a scale of 1 to 5, 1 being strongly disagree, 5 being strongly agree, how much do you agree with the statement that <strong>rich people are selfish</strong>?</p>
+                    <p>What is your impression of competitions?</p>
+                    <!-- using radio here as these are "enum" values so range does not work -->
                     <div class="column-display">
-                        <label><input type="radio" id="q2one" name="q4">1</label>
-                        <label><input type="radio" id="q2two" name="q4">2</label>
-                        <label><input type="radio" id="q2three" name="q4">3</label>
-                        <label><input type="radio" id="q2four" name="q4">4</label>
-                        <label><input type="radio" id="q2five" name="q4">5</label>
+                        <label><input type="radio" id="q4positive" name="q4" value="1">Positive</label>
+                        <label><input type="radio" id="q4neutral" name="q4" value="0">Neutral</label>
+                        <label><input type="radio" id="q4negative" name="q4" value="-1">Negative</label>
+                    </div>
+                    <!-- Not using option as option is worse on mobile for ui in my opinion -->
+                </div>
+                <div class="question" id="question5">
+                    <h1>Question 5</h1>
+                    <p>Do you agree that all hard work should be rewarded?</p>
+                    <div class="column-display">
+                        <label><input type="radio" id="q5agree" name="q5" value="-1">Agree</label>
+                        <label><input type="radio" id="q5disagree" name="q5" value="1">Disagree</label>
                     </div>
                 </div>
+                <!-- Prev and next button made using flex-box to position the items -->
                 <div class="Flex-box">
                     <button id="prev">Prev</button>
                     <button id="next">Next</button>
                 </div>
+                <div class="result">
+                    <h1>Your final score is</h1>
+                    <p class="score-display">score</p>
+                    <p class="result-text">blank</p>
+                </div>
             </div>
         </section>
         <section class="page" id="page7">
-            page 7 content
+            <h1>Cold War mini game</h1>
+            <p>Description of the game</p>
+            
         </section>
     </main>
     <footer>
