@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Cold War</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="java/main.js" defer></script>
+
+    <!-- Add the following lines to have a mobile browser app -->
+    <!-- <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1,user-scalable=no"> -->
+    <!-- <meta name="mobile-web-app-capable" content="yes"> -->
+    <!-- <meta name="apple-mobile-web-app-capable" content="yes"> -->
+    <!-- <link rel="icon" type="image/x-icon" href="favicon.ico"> -->
+    <!-- get icons from https://www.favicon.cc -->
+    <!--for android-->
+    <!-- <link rel="manifest" href="manifest.json" /> -->
+
+</head>
+
+<body>
+    <!-- Things to note for A2: For Checkbox, use label with check box!!! -->
+    <!-- Consider using place holders for forms instead of labels -->
+    <!-- Use template strings when displaying things -->
+    <!-- Remember to do code optimisation for javascript -->
+    <!-- Use spritesheets to optimise the code, specifically for icons and buttons -->
+    <!-- Responsive break point is 800px, column must auto resize, must have a maximum width -->
+    <header>
+        <h1 id="top">The Cold War</h1>
+    </header>
+    <nav> <!--menu system-->
+        <button id="hamIcon">Open Menu</button>
+        <ul>
+            <li><button id="page1btn">Home</button></li>
+            <li><button id="page2btn">Start of war</button></li>
+            <li><button id="page3btn">Key Events</button></li>
+            <li><button id="page4btn">End of war</button></li>
+            <li><button id="page5btn">Effects of the war</button></li>
+            <li><button id="page6btn">Ideology survey</button></li>
+            <li><button id="page7btn">Mini game</button></li>
+        </ul>
+    </nav>
+    <!-- page html -->
+    <main id="pagecontainer">
+        <!-- page 1 html -->
+        <section class="page" id="page1">
+            <!-- mini-tab class to give a css layout to the items -->
+            <div class="mini-tab">
+                <h2>How did the Cold War start?</h2>
+                <p>How did Cold War between the USA and the Soviet Union, two allies in WW2, start? Click to
+                    find out more.</p>
+                <!-- use of learnbtn is explained in java, see java for more details -->
+                <button class="learnbtn" id="learn1">Learn more</button>
+            </div>
+            <!-- Each mini tab has a preview of what is in the page -->
+            <div class="mini-tab">
+                <h2>Key events in the Cold War</h2>
+                <p>The Cold War took was fought over a span of more than 40 years, what were the key events that took
+                    place? Click to find out more.</p>
+                <button class="learnbtn" id="learn2">Learn more</button>
+            </div>
+            <div class="mini-tab">
+                <h2>How did the Cold War end?</h2>
+                <p>How exactly did the Soviet Union lose the Cold War? What did the USA do in order to ensure it won the
+                    war? Click to learn more.</p>
+                <button class="learnbtn" id="learn3">Learn more</button>
+            </div>
+            <div class="mini-tab">
+                <h2>Effects of the Cold War</h2>
+                <p>What were the main takeaways from the Cold War? Click here to find out more.</p>
+                <button class="learnbtn" id="learn4">Learn more</button>
+            </div>
+            <div class="mini-tab">
+                <h2>Ideology mini quiz</h2>
+                <p>Ever wondered if you were a capitalist or a communist? Take this mini quiz to get a rough understand
+                    of where you stand on the spectrum.</p>
+                <button class="learnbtn" id="learn5">Take quiz</button>
+            </div>
+            <div class="mini-tab">
+                <h2>How did the Cold War end?</h2>
+                <p>Play this quick mini-game on the fall of the Berlin wall to get a feel of how it was like for the
+                    Germans to experience the fall of the wall. Click here to play the game.</p>
+                <button class="learnbtn" id="learn6">Play game</button>
+            </div>
+        </section>
+        <!-- Page 2 css -->
+        <section class="page" id="page2">
+            <!-- Structuring the page using grid so that the images can drop below paras on mobile -->
+            <div class="grid-container">
+                <article>
+                    <h1>How did the Cold War start?</h1>
+                    <h2>Yalta and Potsdam conferences</h2>
+                    <p>Towards the end of World War 2, allied powers comprising of Britain, the United States of America
+                        (USA), and the Soviet Union engaged in talks to discuss how the war-torn Europe. These talks
+                        were held in Yalta and Potsdam. During the talks, conflicts arose between the leaders of the USA
+                        and the Soviet Union. The leader of the Soviet Union, Joseph Stalin, felt distrustful of the USA
+                        due to how the USA withheld information of the atomic bomb from the Soviet Union despite their
+                        alliance. The USA on the other hand, feared the spread of communism and did not trust the Soviet
+                        Union. This thus caused the Yalta and Potsdam conference to play a critical role in
+                        deterioriating the relationship between the USA and the Soviet Union, which is why some
+                        historians argue that the Potsdam conference was the start of the Cold War. However, despite the
+                        Soviet Union promising to hold free and fair elections in the Eastern Bloc, they turned the
+                        countries into Soviet satellite states.</p>
+                </article>
+                <aside>
+                    <img src="images/joseph_stalin.jpg" title="Joseph Stalin">
+                    <p>An image of Joseph Stalin</p>
+                </aside>
+                <article>
+                    <h2>Iron Curtain</h2>
+                    <p>On March 5th 1946, Winston Churchill gave the famous Iron Curtain speech. In this speech,
+                        Churchill talked about the dangers of the spread of communism and how dangerous the Soviet Union
+                        is. Churchill suggested in this speech that America and Britain must stand up against the the
+                        communist threat and protect European countries near the eastern bloc from communist influence.
+                        This was the first speech where a major politician had talked about the threat of communism and
+                        it had greatly heightened tensions between the USSR and the USA, thus leading to some historians
+                        saying it was the start of the Cold War.</p>
+                </article>
+                <aside>
+                    <img src="images/iron_curtain.jpg" title="Winston Churchill Iron Curtain Speech">
+                    <p>An image of Winston Churchill during the Iron Curtain speech</p>
+                </aside>
+            </div>
+        </section>
+        <!-- Page 3 css -->
+        <section class="page" id="page3">
+            <div class="grid-container">
+                <article>
+                    <h1>Key events in the Cold War</h1>
+                    <article>
+                        <h2>Cuban Missile Crisis</h2>
+                        <p>In August 29th 1949, the Soviet Union successfully invented their own atomic bomb, leading
+                            the USA and the Soviet Union to have an arms race against each other. The USA had stationed
+                            missiles in Turkey between 1961 and 1962, which due to how close Turkey was to the USSR,
+                            caused the USSR to feel threatened. Following the communist revolution of Cuba, America
+                            attempted various operations to try and remove Cuban dictator Fidel Castro from power.
+                            However, these failed attempts caused Cuba to turn to the USSR for protection.</p>
+                    </article>
+                </article>
+                <aside>
+                    <img src="images/fidel_castro.jpg" title="Fidel Castro">
+                    <p>An image of Fidel Castro</p>
+                </aside>
+                <article>
+                    <p>The USSR responded to Cuba's plea by stationing soviet missles in Cuba, making America feel
+                        threatened. This lead America to enfore a naval blockade around Cuba, preventing soviet ships
+                        from entering Cuba without an inspection. This had escalated tensions between both sides,
+                        causing the leaders of both countries to try and negotiate a deal before an all out nuclear war
+                        broke out. In the end, the leaders from both countries were able to successfully come to an
+                        agreement, with the USA and the Soviet Union pulling out their missiles from Turkey and Cuba
+                        respectfully.</p>
+                </article>
+                <aside>
+                    <img src="images/missiles_cuba.jpg" title="Soviet Missiles in Cuba">
+                    <p>An image of photographed missile site in Cuba</p>
+                </aside>
+            </div>
+        </section>
+        <section class="page" id="page4">
+            page 4 content
+        </section>
+        <section class="page" id="page5">
+            page 5 content
+        </section>
+        <!-- page 6 css -->
+        <section class="page" id="page6">
+            <!-- intro para -->
+            <h1>Ideology mini survey</h1>
+            <p>This survey will give you a rough gauge how communist or capitalist you are. Simply answer all the
+                questions and press submit to get your results.</p>
+            <!-- Block to display current qns/result -->
+            <div class="block">
+                <div class="question" id="question1">
+                    <h1>Question 1</h1>
+                    <p>Do you believe that everyone should be paid equally regardless of how much work they do?</p>
+                    <!-- using radio button as user can pick either not both -->
+                    <div class="column-display">
+                        <label><input type="radio" id="q1agree" name="q1" value="-1">Agree</label>
+                        <label><input type="radio" id="q1disagree" name="q1" value="1">Disagree</label>
+                    </div>
+                </div>
+                <div class="question" id="question2">
+                    <h1>Question 2</h1>
+                    <p>On a scale of 1 to 5, 1 being strongly disagree, 5 being strongly agree, how much do you agree
+                        with the statement that <strong>rich people are selfish</strong>?</p>
+                        <!-- using range because using values from 1 - 5 so best displayed as a slider that user can drag -->
+                    <label><input type="range" id="q2" min="1" max="5" step="1" value="3" name="q2"></label>
+                    <!-- Default value, when the user interacts with the slider will update the html -->
+                    <p id="q2display">Current number: 3</p>
+                </div>
+                <div class="question" id="question3">
+                    <h1>Question 3</h1>
+                    <p>On a scale of 1 to 5, 1 being strongly disagree, 5 being strongly agree, how much do you agree
+                        with the statement that <strong>free speech is important in society</strong>?</p>
+                        <!-- range step is intervals, value is default value -->
+                    <label><input type="range" id="q3" min="1" max="5" step="1" value="3" name="q3"></label>
+                    <p id="q3display">Current number: 3</p>
+                </div>
+                <div class="question" id="question4">
+                    <h1>Question 4</h1>
+                    <p>What is your impression of competitions?</p>
+                    <!-- using radio here as these are "enum" values so range does not work -->
+                    <div class="column-display">
+                        <label><input type="radio" id="q4positive" name="q4" value="1">Positive</label>
+                        <label><input type="radio" id="q4neutral" name="q4" value="0">Neutral</label>
+                        <label><input type="radio" id="q4negative" name="q4" value="-1">Negative</label>
+                    </div>
+                    <!-- Not using option as option is worse on mobile for ui in my opinion -->
+                </div>
+                <div class="question" id="question5">
+                    <h1>Question 5</h1>
+                    <p>Do you agree that all hard work should be rewarded?</p>
+                    <div class="column-display">
+                        <label><input type="radio" id="q5agree" name="q5" value="-1">Agree</label>
+                        <label><input type="radio" id="q5disagree" name="q5" value="1">Disagree</label>
+                    </div>
+                </div>
+                <!-- Prev and next button made using flex-box to position the items -->
+                <div class="Flex-box">
+                    <button id="prev">Prev</button>
+                    <button id="next">Next</button>
+                </div>
+                <div class="result">
+                    <h1>Your final score is</h1>
+                    <p class="score-display">score</p>
+                    <p class="result-text">blank</p>
+                </div>
+            </div>
+        </section>
+        <section class="page" id="page7">
+            <h1>Cold War mini game</h1>
+            <p>Description of the game</p>
+            
+        </section>
+    </main>
+    <footer>
+        <div class="Flex-box">
+            <p>Place holder credits</p>
+            <p>QR code</p>
+        </div>
+        <!-- Jump to top button -->
+        <a href="#top"><strong>Jump to top</strong></a>
+    </footer>
+</body>
+
+</html>
