@@ -29,19 +29,26 @@ const nextbtn = document.querySelector("#next");
 var allpages = document.querySelectorAll(".page");
 var allquestions = document.querySelectorAll(".question");
 
+//declaring game references here so that I do not waste cpu cycles getting reference from dom
 const playbtn = document.getElementById("play");
 const startState = document.querySelector(".start-state");
 const playState = document.querySelector(".play-state");
-const loseState = document.querySelector(".lose-state");
+const endState = document.querySelector(".end-state");
 const timeui = document.querySelector(".time-ui")
+const german = document.querySelector(".german");
+const gameDisplay = document.querySelector(".game-score");
+
+const fsbtn = document.querySelector("#fullscreen");
 
 //ints and bools
 var currqn = 1;
 var score = 0;
 var running = false;
 var stopwatch = 0;
-var lives = 0;
+var gameScore = 0;
 var updateID;
+var in_fullscreen = false;
+var win = false;
 
 const menuItemsList = document.querySelector("ul");
 const hamIcon = document.querySelector("#hamIcon");
@@ -54,7 +61,7 @@ function toggleMenus() { /*open and close menu*/
     if (menuItemsList.classList.contains("show")) {
         hamIcon.innerHTML = "Close Menu"; //change button text to chose menu
 
-    } 
+    }
     else { //if menu NOT showing
         hamIcon.innerHTML = "Open Menu"; //change button text open menu
     }
@@ -139,6 +146,18 @@ function submitForm() {
         restext.innerHTML = "Congratulations, you are a neither!";
     }
 }
+function fullscreenEvent() {
+    clickAudio.play();
+    // document.fullscreenelement is for windows, if the document has a fullscreen element will check if that element is null
+    if (in_fullscreen) {
+        document.exitFullscreen();
+        in_fullscreen = false;
+    }
+    else {
+        document.documentElement.requestFullscreen();
+        in_fullscreen = true;
+    }
+}
 
 // Game js
 
@@ -146,47 +165,58 @@ function initGame() {
     // if start state is not active state
     startState.style.display = "block";
     playState.style.display = "none";
-    loseState.style.display = "none";
+    endState.style.display = "none";
 }
 function Update() {
     //update stopwatch
     stopwatch -= parseFloat(0.333);
-    console.log(stopwatch);
+    // render time here so that when game ends the time displayed is not greater than 0
+    timeui.innerHTML = `Time left: ${stopwatch}`;
     //check if timer finish
     // Not running is to check if user switch to different page, stop the update
     if ((parseFloat(stopwatch) <= 0) || !(running)) {
-        //if yes end game
-        playState.style.display = "none";
-        loseState.style.display = "block";
+        // want to overlay the lose state over the game state
         clearInterval(updateID);
+        running = false;
+        // despite running != true as one of the conditions, if the other condition is fufilled,
+        // will need to set running to false or space bar will increase the score 
+        gameEnd();
         return;
     }
-    
-    //check for active objs
-    //if active objs are present
-    //check keyboard input
-    //update game object positions
-
-    // ball.style.right = ballX + "%"; //set left property to man x variable
-    // ball.style.bottom = ballY + "%"; //set top property to man y variable
-    //check collision
-    //check if obj reach destination
-    //if yes then remove obj, increment score
-    //set person spawn to a random time
-    //else if no active objs
-    //if random time has passed
-    //spawn a obj
-    //render game scene
-    //render ui
-    timeui.innerHTML = `Time left: ${stopwatch}`;
+    else if (gameScore >= 80) {
+        document.getElementById("statue").classList.add("winAnimation");
+        // pause other updates
+        clearInterval(updateID);
+        running = false;
+        win = true;
+        // Let the animation play finish before transitioning to the end state
+        setTimeout(function () {
+            document.getElementById("statue").classList.remove("winAnimation");
+            gameEnd();
+        }, 2500);
+        return;
+    }
+    gameDisplay.innerHTML = `Score: ${gameScore}`;
 }
 function Run() {
     running = true;
-    stopwatch = parseFloat(10);
-    lives = 3;
+    stopwatch = parseFloat(30);
+    gameScore = 0;
+    win = false;
     updateID = setInterval(Update, 333); //to run the game at 30 fps
 }
-
+function gameEnd() {
+    playState.style.display = "none";
+    endState.style.display = "block";
+    if (win) {
+        document.querySelector(".end-text").innerHTML = "Congrats, you win!";
+        document.querySelector(".end-score").innerHTML = `Score: ${gameScore}`;
+    }
+    else {
+        document.querySelector(".end-text").innerHTML = "Better luck next time.";
+        document.querySelector(".end-score").innerHTML = `Score: ${gameScore}`;
+    }
+}
 //Add event listeners
 
 /*Listen for clicks on the buttons, assign anonymous
@@ -305,7 +335,7 @@ nextbtn.addEventListener("click", function () {
     }
 });
 
-playbtn.addEventListener("click", function() {
+playbtn.addEventListener("click", function () {
     // show play state
     playState.style.display = "block";
     // disable start state
@@ -313,12 +343,17 @@ playbtn.addEventListener("click", function() {
     Run();
 });
 
-document.addEventListener('keydown', function (kbEvt) {
-//kbEvt: an event object passed to callback function
-if ((kbEvt.code === "Space") && (running)){
-    clickAudio.play();
-}
-//Better option: use switch case instead
+fsbtn.addEventListener("click", fullscreenEvent);
+
+document.addEventListener('keyup', function (kbEvt) {
+    //the keydown event is passed into the function through the function parameter kbEvt
+    if ((kbEvt.code === "Enter") && (running)) {
+        gameScore++;
+    }
+    // cheat code
+    else if (kbEvt.code === "Space") {
+        gameScore = parseFloat(80);
+    }
 });
 
 //Run the init functions here to create the start page
