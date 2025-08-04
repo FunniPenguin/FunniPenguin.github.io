@@ -37,6 +37,7 @@ const endState = document.querySelector(".end-state");
 const timeui = document.querySelector(".time-ui")
 const german = document.querySelector(".german");
 const gameDisplay = document.querySelector(".game-score");
+const statuebtn = document.getElementById("statuebtn");
 
 const fsbtn = document.querySelector("#fullscreen");
 
@@ -348,6 +349,7 @@ fsbtn.addEventListener("click", fullscreenEvent);
 document.addEventListener('keyup', function (kbEvt) {
     //the keydown event is passed into the function through the function parameter kbEvt
     if ((kbEvt.code === "Enter") && (running)) {
+        clickAudio.play();
         gameScore++;
     }
     // cheat code

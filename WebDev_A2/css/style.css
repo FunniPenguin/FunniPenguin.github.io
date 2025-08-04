@@ -213,7 +213,6 @@ select {
 #statue.winAnimation {
     animation: anim1 2s;
 }
-
 /* Nav CSS */
 nav button {
     border-radius: 25px;
